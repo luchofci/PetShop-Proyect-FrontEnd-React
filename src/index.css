@@ -1,15 +1,24 @@
+:root {
+  --primery-color: rgb(67, 79, 92);
+  --text-light: rgb(255, 254, 247);
+  --bg-light: rgb(255, 254, 247);
+  --bg-nav-footer: rgb(67, 79, 92);
+  --dark-color: rgb(22, 110, 140);
+  --light-color: rgb(205, 224, 230);
+  --font-family: Arial, Helvetica, sans-serif;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-:root {
-  font-family: "Roboto", sans-serif;
-}
-
-#root {
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-light);
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+
 }

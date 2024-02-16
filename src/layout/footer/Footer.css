@@ -5,6 +5,7 @@
 
 .main-footer {
     background-color: var(--bg-nav-footer);
+    /* background-color: red; */
     color: white;
     display: flex;
     /* flex-wrap: wrap; */
@@ -75,4 +76,48 @@
 
 .footer-link:hover {
     text-decoration: underline;
+}
+
+
+@media screen and (width > 768px) {
+    .feature-section {
+        flex-direction: row;
+
+        .feature {
+            flex: 1 1 auto;
+            padding: 3rem 1rem;
+        }
+    }
+
+
+
+    .main-footer {
+        flex-direction: row;
+    }
+
+    .footer-section1 {
+        padding: 1.5rem;
+        flex: 1 0 0;
+        position: relative;
+
+    }
+
+    .footer-section2 {
+        flex: 1 0 0;
+        position: relative;
+        padding: 1.5rem;
+
+
+    }
+
+
+    .footer-section3 {
+        flex: 1 0 0;
+        position: relative;
+        padding: 1.5rem;
+
+
+    }
+
+
 }
