@@ -1,0 +1,78 @@
+
+/* ------------FOOTER----------------------------*/
+
+
+
+.main-footer {
+    background-color: var(--bg-nav-footer);
+    color: white;
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.footer-section1 {
+    justify-content: center;
+    display: grid;
+    flex-direction: column;
+    align-content: center;
+    margin: 1rem;
+    .telefono {
+        text-align: center;
+    }
+
+}
+
+.footer-section2 {
+    justify-content: center;
+    display: grid;
+}
+
+.footer-section3 {
+    padding: 3rem 1rem;
+    gap: 1rem;
+    /* align-items: center; */
+    justify-content: center;
+    display: grid;
+}
+
+
+.footer-logo {
+    width: 200px;
+    height: 200px;
+}
+
+.logo-IG {
+    width: 35px;
+    height: 35px;
+    margin-right: 1rem;
+}
+
+.logo-YT {
+    width: 35px;
+    height: 35px;
+    margin-right: 1rem;
+}
+
+.logo-FB {
+    width: 35px;
+    height: 35px;
+    color: white;
+    background-color: white;
+    margin-right: 1rem;
+}
+
+
+.footer-link{
+    color: var(--light-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
