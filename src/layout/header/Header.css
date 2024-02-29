@@ -1,0 +1,165 @@
+:root {
+    --primery-color: rgb(67, 79, 92);
+    --text-light: rgb(255, 254, 247);
+    --bg-light: rgb(255, 254, 247);
+    --bg-nav-footer: rgb(67, 79, 92);
+    --dark-color: rgb(22, 110, 140);
+    --light-color: rgb(205, 224, 230);
+    --font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-light);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-nav-footer);
+    display: flex;
+    justify-content: space-between;
+    height: 54px;
+    z-index: 1;
+}
+
+.input-check {
+    display: none;
+}
+
+.burger-menu {
+    width: 45px;
+    background-color: var(--bg-nav-footer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger-icon {
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+
+.main-nav {
+    position: fixed;
+    left: 0;
+    /* Al definir top y bottom le decimos al elemento que se deba estirar y obtenga alguna altura */
+    top: 54px;
+    bottom: 0;
+    width: 0;
+    overflow: hidden;
+    background-color: #FEFEFE;
+    transition: width .3s ease-in-out;
+}
+
+.input-check:checked~.main-nav {
+    width: 240px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+
+}
+
+.nav-logo {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+}
+
+.nav-list {
+    gap: .5rem;
+    margin: 5rem 0;
+    padding-right: 1rem;
+}
+
+.nav-item .nav-link {
+    padding: .25rem 1rem;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+
+}
+
+.nav-item .nav-link:hover {
+    background-color: rgb(22, 103, 128);
+    color: white;
+}
+
+.nav-item:not(:last-child) {
+    border-bottom: 1px solid #DDD
+}
+
+.user-menu {
+    /* width: 40px; */
+    /* height: 20px;  */
+    /* object-fit: cover;  */
+    display: flex;
+}
+
+.nav-link.active {
+    background-color: rgb(42, 115, 188);
+
+}
+
+@media screen and (width > 768px) {
+    .main-header {
+        justify-content: flex-start;
+    }
+
+    .burger-menu {
+        display: none;
+    }
+
+    .main-nav {
+        position: relative;
+        top: 0;
+        width: auto !important;
+        background-color: transparent;
+    }
+
+    .nav-list {
+        margin: auto;
+    }
+
+    .nav-item {
+        list-style: none;
+    }
+
+    .nav-item:not(:last-child) {
+        border-bottom: none;
+    }
+
+    .nav-list {
+        height: 100%;
+    }
+
+    .nav-item .nav-link {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        color: var(--light-color);
+    }
+
+    .user-menu {
+        margin-left: auto;
+    }
+
+
+    .nav-list {
+        display: flex
+    }
+
+}

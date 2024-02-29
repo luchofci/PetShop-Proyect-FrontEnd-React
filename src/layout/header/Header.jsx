@@ -2,55 +2,103 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
-    const navigate = useNavigate()
-    const isAdmin = true;
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+	const navigate = useNavigate();
+	const isAdmin = true;
+	const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    function logout(){
-        localStorage.removeItem('currentUser');
-        localStorage.removeItem('token');
-        navigate("/")
-    }
+	function logout() {
+		localStorage.removeItem('currentUser');
+		localStorage.removeItem('token');
+		navigate('/');
+	}
 
 	return (
-		<header className=''>
-			{/* VER LAS CLASSNAME DE LOS NAVLINK */}
-			<NavLink to="/" className={({isActive})  => isActive ?    "nav-link active" : 'nav-link'}>Principal</NavLink>
-			<NavLink to="/contact" className="">
-				Contacto
-			</NavLink>
-			<NavLink to="/register" className="">
-				Registro
-			</NavLink>
-			<NavLink to="/about-us" className="">
-				Acerca de
-			</NavLink>
-			{/* <NavLink to="/adopta" className="">
+		<header className="main-header">
+			<input className="input-check" type="checkbox" id="check-menu" />
+
+			<label className="burger-menu" for="check-menu">
+				<div className="burger-icon">
+					<i className="fa-solid fa-paw"></i>
+				</div>
+			</label>
+
+			<a className="logo-link" href="/index.html">
+				<img
+					className="nav-logo"
+					src="/assets/images/logo-no-background.png"
+					alt="logo-img"
+				/>
+			</a>
+
+			<nav className="main-nav">
+				<div className="nav-list">
+					<div className="nav-item">
+						{/* VER LAS CLASSNAME DE LOS NAVLINK */}
+						<NavLink
+							to="/"
+							className={({ isActive }) =>
+								isActive ? 'nav-link active' : 'nav-link'
+							}
+						>
+							Principal
+						</NavLink>
+					</div>
+					<div className="nav-item">
+						<NavLink to="/contact" className="nav-link">
+							Contacto
+						</NavLink>
+					</div>
+					<div className="nav-item">
+						<NavLink to="/register" className="nav-link">
+							Registro
+						</NavLink>
+					</div>
+					<div className="nav-item">
+						<NavLink to="/about-us" className="nav-link">
+							Acerca de
+						</NavLink>
+					</div>
+					{/* <div className='nav-item'>
+			<NavLink to="/adopta" className="nav-link">
 				"ADOPTA"
-			</NavLink> */}
-			{currentUser ? (
-				<NavLink className="nav-link" onClick={() => logout()}>
-					Logout
-				</NavLink>
-			) : (
-				<NavLink to="/login" className="nav-link">
-					Login
-				</NavLink>
-			)}
-			{isAdmin && (
-				<>
-					<NavLink to="/admin-product" className="nav-link">
-						Admin Product
-					</NavLink>
-					<NavLink to="/admin-user" className="nav-link">
-						Admin User
-					</NavLink>
-				</>
-			)}
+			</NavLink> 						
+					</div> */}
+					<div className="nav-item">
+						{currentUser ? (
+							<NavLink
+								className="nav-link"
+								onClick={() => logout()}
+							>
+								Logout
+							</NavLink>
+						) : (
+							<NavLink to="/login" className="nav-link">
+								Login
+							</NavLink>
+						)}
+					</div>
+					{isAdmin && (
+						<>
+							<div className="nav-item">
+								<NavLink
+									to="/admin-product"
+									className="nav-link"
+								>
+									Admin Product
+								</NavLink>
+							</div>
+							<div className="nav-item">
+								<NavLink to="/admin-user" className="nav-link">
+									Admin User
+								</NavLink>
+							</div>
+						</>
+					)}
+				</div>
+			</nav>
 		</header>
 	);
 }
-
 
 // ------------------------------------------
 
@@ -62,7 +110,6 @@ export default function Header() {
 // export default function Header() {
 // 	const { toggleMenu, totalItems } = useOrder();
 // 	const { user, logout, admin } = useUser()
-	
 
 // 	return (
 // 		<header className="header">
@@ -85,7 +132,7 @@ export default function Header() {
 // 			<NavLink to="/about-us" className="nav-link">
 // 				"ADOPTA"
 // 			</NavLink>
-			
+
 // 			{!user &&(
 // 				<NavLink to="/register" className="nav-link">
 // 					Registro
@@ -103,13 +150,12 @@ export default function Header() {
 // 				</>
 // 			)}
 // 			</nav>
-			
 
 // 				<div className="user-info">
 // 					{user ? (
 // 						<>
 // 							<div className="icon-container">
-// 								<i 
+// 								<i
 // 									className='cart-icon fa-solid fa-cart-shopping'
 // 									data-count = {totalItems}
 // 									onClick={()=>toggleMenu()}
@@ -135,7 +181,7 @@ export default function Header() {
 // 						</NavLink>
 // 					)}
 // 				</div>
-			
+
 // 		</header>
 // 	);
 // }
