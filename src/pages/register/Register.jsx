@@ -1,6 +1,8 @@
+import Layout from "../../layout/layout";
+
 export default function Register() {
 	return (
-		<>
+		<Layout>
 			<div className="formulario-container">
 				<h1>REGISTRO DE USUARIO</h1>
 
@@ -9,7 +11,7 @@ export default function Register() {
 					id="user-register-form"
 					// onSubmit={submitUserRegisterForm(event)}
 					encType="multipart/form-data"
-				>
+					>
 					<div className="input-group">
 						<label htmlFor="inputName">Nombre Completo</label>
 						<input
@@ -143,6 +145,6 @@ export default function Register() {
 				<br></br>
 				<br></br>
 			</div>
-		</>
+		</Layout>
 	);
 }

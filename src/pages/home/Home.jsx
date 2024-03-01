@@ -1,15 +1,17 @@
-// import Banner from '../../Layout/Banner/Banner';
-// import { ProductCardsContainer } from '../../components/productCardsContainer/productCardsContainer';
+import Banner from '../../components/banner/Banner';
+import { ProductCardsContainer } from '../../components/productCardsContainer/productCardsContainer';
+import Layout from '../../layout/layout';
+
 
 export default function Home() {
 	return (
-		<>
-			{/* <Banner /> */}
+		<Layout>
+			<Banner />
+
 			<div className="main-container">
-				YOLO
-				{/* <ProductCardsContainer /> */}
+				<ProductCardsContainer />
 			</div>
     
-		</>
+		</Layout>
 	);
 }

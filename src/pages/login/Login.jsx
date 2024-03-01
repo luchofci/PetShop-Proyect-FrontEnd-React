@@ -2,6 +2,7 @@ import "./Login.css";
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import Layout from "../../layout/layout";
 
 const URL = import.meta.env.VITE_SERVER_URL;
 
@@ -53,7 +54,7 @@ export default function Login() {
 	
 	
 	return (
-		<>
+		<Layout>
 		<div className="formulario-container">
         <h1>LOGIN</h1>
         <hr/>
@@ -92,7 +93,7 @@ export default function Login() {
         <br/>
         <hr/>
     </div>
-		</>
+		</Layout>
 
 	)
 	

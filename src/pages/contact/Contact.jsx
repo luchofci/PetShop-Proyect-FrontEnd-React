@@ -1,6 +1,8 @@
+import Layout from "../../layout/layout";
+
 export default function contact() {
 	return (
-		<>
+		<Layout>
 			<main className="main-container main-contact">
 				<section className="section-contact">
 					<div className="contact-form-container">
@@ -65,7 +67,7 @@ export default function contact() {
 					</div>
 				</section>
 			</main>
-		</>
+		</Layout>
 
 	)
 }

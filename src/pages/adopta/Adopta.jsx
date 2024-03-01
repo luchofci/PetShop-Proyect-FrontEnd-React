@@ -1,8 +1,10 @@
 import React from 'react'
+import Layout from '../../layout/layout'
+import './Adoptar.css'
 
-export const adopta = () => {
-  return (
-    <>
+export default function Adopta() {
+    return (
+    <Layout>
         <main className="main-content">
         <section className="adoption-section">
             <h1>¡Adopta una Mascota!</h1>
@@ -46,6 +48,6 @@ export const adopta = () => {
     </main>
     
     
-    </>
-  )
+    </Layout>
+    )
 }

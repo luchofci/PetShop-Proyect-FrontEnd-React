@@ -1,8 +1,8 @@
-import React from 'react';
+import Layout from '../../layout/layout';
 
-export default function aboutUs() {
+export default function AboutUs() {
 	return (
-		<>
+		<Layout>
 			<section className="about-section">
 				<h1>Nosotros</h1>
 				<p>
@@ -144,6 +144,6 @@ export default function aboutUs() {
 					<li>Proyectos exitosos como...</li>
 				</ul>
 			</section>
-		</>
+		</Layout>
 	);
 }
