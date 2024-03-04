@@ -55,13 +55,14 @@ export default function Login() {
 	
 	return (
 		<Layout>
-		<div className="formulario-container">
-        <h1>LOGIN</h1>
-        <hr/>
+		<div className="formulario-container-login">
+        <h1 className="h1-login">LOGIN</h1>
+        <hr className="hr-login"/>
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="inputName">Email</label><br/>
+                <label className="label-login" htmlFor="inputName">Email</label><br/>
                 <input 
+					className="input-login"
                     type="email" 
                     name="inputEmail" 
                     id="inputEmail" 
@@ -73,8 +74,9 @@ export default function Login() {
                     required/>
             </div>
             <div>
-                <label htmlFor="inputPassword">Contraseña</label><br/>
+                <label className="label-login" htmlFor="inputPassword">Contraseña</label><br/>
                 <input 
+					className="input-login"
                     type="password"
                     name="inputPassword"
                     id="inputPassword"
@@ -85,13 +87,13 @@ export default function Login() {
                     required/>
             </div>
             <div>
-                <button type="submit">Ingresar</button>
+                <button className="button-login" type="submit">Ingresar</button>
                 
             </div>
         </form>
         <br/>
         <br/>
-        <hr/>
+        <hr className="hr-login"/>
     </div>
 		</Layout>
 

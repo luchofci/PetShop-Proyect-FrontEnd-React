@@ -1,0 +1,124 @@
+.formulario-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.main-title-register{
+    margin: 4rem;
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color:var(--primery-color);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px var(--light-color),
+        1px 2px 0px var(--light-color),
+        1px 3px 0px var(--light-color),
+        1px 4px 0px var(--light-color),
+        1px 5px 0px var(--light-color),
+        1px 6px 0px var(--light-color),
+        1px 10px 5px rgba(16, 16, 16, 0.5),
+        1px 15px 10px rgba(16, 16, 16, 0.4),
+        1px 20px 30px rgba(16, 16, 16, 0.3),
+        1px 25px 50px rgba(16, 16, 16, 0.2);
+
+}
+
+.register-inputs,
+.register-textarea {
+    border-bottom: 1px solid var(--dark-color);
+    color: black;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.register-select {
+    border-bottom: 1px solid var(--dark-color);
+    /* background-color: var(--light-color); */
+    color: black;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.register-inputs:hover {
+    border-color: var(--dark-color);
+    outline: none;
+}
+
+.register-textarea:hover {
+    border-color: var(--dark-color);
+    outline: none;
+}
+
+.register-select:hover {
+    border-color: var(--dark-color);
+    outline: none;
+}
+
+.register-inputs:focus {
+    border-color: var(--dark-color);
+    outline: none;
+}
+
+.register-textarea:focus {
+    border-color: var(--dark-color);
+    outline: none;
+}
+
+.register-select:focus {
+    border-color: var(--dark-color);
+    outline: none;
+}
+
+.register-button {
+    background-color: var(--primery-color);
+    width: 100%;
+    height: 2.25rem;
+    border: 2px solid transparent;
+    padding: 4px 8px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: var(--light-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.register-button:hover {
+    background-color: green ;
+    color: var(--light-color);
+    border: 2px solid var(--light-color);
+}
+
+.input-group {
+    margin: 0 auto;
+    margin-bottom: .75rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--dark-color);
+    font-weight: bold;
+
+    :is(input, textarea, select) {
+        padding: .375rem .675rem;
+        font-size: 1rem;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        border-bottom: 3px solid lightblue;
+    }
+}
+
+.input-group label {
+    color: var(--primery-color);
+
+}
+
+
+.user-register-form {
+    max-width: 600px;
+    padding: 1.5rem;
+    margin-inline: auto;
+    background-color: var(--light-color);
+
+}

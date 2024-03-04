@@ -1,4 +1,5 @@
 import Layout from "../../layout/layout";
+import './Contact.css'
 
 export default function contact() {
 	return (

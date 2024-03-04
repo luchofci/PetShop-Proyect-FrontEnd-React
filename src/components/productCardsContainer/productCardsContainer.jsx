@@ -94,7 +94,7 @@ export const ProductCardsContainer = () => {
 
 	return (
 		<>
-			<h1>Productos</h1>
+			<h1 className='main-title'>Productos</h1>
 			<div className="main-products-filter">
 				<select
 					id="select-products-categories"

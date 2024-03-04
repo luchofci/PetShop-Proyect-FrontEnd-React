@@ -1,0 +1,27 @@
+.feature-section {
+    display: grid;
+    flex-direction: column;
+    /* margin: 2rem 0; */
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-weight: bolder;
+
+    .feature {
+        padding: 3rem 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (width > 768px) {
+    .feature-section {
+        flex-direction: row;
+
+        .feature {
+            flex: 1 1 auto;
+            padding: 3rem 1rem;
+        }
+    }
+}

@@ -1,10 +1,11 @@
 import Layout from "../../layout/layout";
+import './Register.css'
 
 export default function Register() {
 	return (
 		<Layout>
 			<div className="formulario-container">
-				<h1>REGISTRO DE USUARIO</h1>
+				<h1 className="main-title-register">REGISTRO DE USUARIO</h1>
 
 				<form
 					className="user-register-form"
@@ -15,6 +16,7 @@ export default function Register() {
 					<div className="input-group">
 						<label htmlFor="inputName">Nombre Completo</label>
 						<input
+							className="register-inputs"
 							type="text"
 							name="inputName"
 							id="inputName"
@@ -32,6 +34,7 @@ export default function Register() {
 						<label htmlFor="inputCorreo">Correo Electronico</label>
 						<br />
 						<input
+							className="register-inputs"
 							type="email"
 							name="inputCorreo"
 							id="inputCorreo"
@@ -47,6 +50,7 @@ export default function Register() {
 						<label htmlFor="inputPassword">Contraseña</label>
 						<br />
 						<input
+							className="register-inputs"
 							type="password"
 							name="inputPassword"
 							id="inputPassword"
@@ -65,6 +69,7 @@ export default function Register() {
 						</label>
 						<br />
 						<input
+							className="register-inputs"
 							type="password"
 							name="inputPassword2"
 							id="inputPassword2"
@@ -81,6 +86,7 @@ export default function Register() {
 						<label htmlFor="inputDate">Fecha de Nacimiento</label>
 						<br />
 						<input
+							className="register-inputs"
 							type="date"
 							name="inputDate"
 							id="inputDate"
@@ -94,7 +100,7 @@ export default function Register() {
 							Seleccione su provincia
 						</label>
 						<br />
-						<select name="pais" id="inputPais" required>
+						<select name="pais" id="inputPais" required className="register-select">
 							<option value="buenos_aires">Buenos Aires</option>
 							<option value="capital_federal">
 								Capital Federal
@@ -131,6 +137,7 @@ export default function Register() {
 					<div className="input-group">
 						<label htmlFor="">Observacion</label>
 						<textarea
+							className="register-textarea"
 							name="observacion"
 							id=""
 							cols="50"
@@ -139,7 +146,7 @@ export default function Register() {
 					</div>
 
 					<div>
-						<button type="submit">Registrarse</button>
+						<button className="register-button" type="submit">Registrarse</button>
 					</div>
 				</form>
 				<br></br>

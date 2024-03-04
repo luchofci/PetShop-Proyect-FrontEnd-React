@@ -63,7 +63,7 @@ export default function Header() {
 					</div>
 					<div className="nav-item">
 						<NavLink to="/about-us" className="nav-link">
-							Acerca de
+							Nosotros
 						</NavLink>
 					</div>
 					<div className="nav-item">

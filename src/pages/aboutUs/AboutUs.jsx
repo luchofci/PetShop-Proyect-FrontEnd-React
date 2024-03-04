@@ -1,44 +1,45 @@
 import Layout from '../../layout/layout';
+import './AboutUs.css'
 
 export default function AboutUs() {
 	return (
 		<Layout>
 			<section className="about-section">
-				<h1>Nosotros</h1>
-				<p>
+				<h1 className='aboutUs-title'>Nosotros</h1>
+				<p className='aboutUs-p'>
 					Somos una empresa apasionada por las mascotas y su
 					bienestar.
 				</p>
-				<p>
+				<p className='aboutUs-p'>
 					Nuestra historia comenzó en 2018 cuando una pareja, amantes
 					de los animales, decidió mudarse juntos y emprender esta
 					hermosa aventura juntos.{' '}
 				</p>
-				<p>
+				<p className='aboutUs-p'>
 					Nuestra misión es proporcionar productos y servicios de alta
 					calidad, como asi fomentar la adopcion responsable.
 				</p>
-				<p>
+				<p className='aboutUs-p'>
 					En PetShop by Tabu y Odin, nos regimos por valores
 					fundamentales como la familia, la igualdad, el amor y el
 					respeto a todos los seres vivos.
 				</p>
 			</section>
 
-			<h2>Nuestro Equipo</h2>
+			<h2 className='aboutUs-title2'>Nuestro Equipo</h2>
 			<div className="row">
 				<div className="column">
 					<div className="card">
-						<div className="card-img-container">
+						<div className="card-img-container-aboutUs">
 						<img
-							className="card-img"
+							className="card-img-aboutUs"
 							src="/assets/images/Tabu.jpeg"
 							alt="Tabu"
 							style={{ width: '100%' }}
 						/>
 						</div>
 						<div className="container">
-							<h2>Tabu Comignaghi</h2>
+							<h2 className='aboutUs-title2'>Tabu Comignaghi</h2>
 							<span className="title">CEO & Founder</span>
 							<br />
 							<span>
@@ -56,16 +57,16 @@ export default function AboutUs() {
 
 				<div className="column">
 					<div className="card">
-						<div className="card-img-container">
+						<div className="card-img-container-aboutUs">
 							<img
-								className="card-img"
+								className="card-img-aboutUs"
 								src="/assets/images/Odin.jpeg"
 								alt="Odin"
 								style={{ width: '100%' }}
 								/>
 						</div>
 						<div className="container">
-							<h2>Odin Comignaghi</h2>
+							<h2 className='aboutUs-title2'>Odin Comignaghi</h2>
 							<span className="title">CEO & Founder</span>
 							<br />
 							<span>
@@ -83,15 +84,15 @@ export default function AboutUs() {
 
 				<div className="column">
 					<div className="card">
-						<div className="card-img-container">
+						<div className="card-img-container-aboutUs">
 							<img
-								className="card-img"
+								className="card-img-aboutUs"
 								src="/assets/images/Luciano.jpeg"
 								alt="Luciano Comignaghi"
 								style={{ width: '100%' }}/>
 						</div>
 						<div className="container">
-							<h2>Luciano Comignaghi</h2>
+							<h2 className='aboutUs-title2'>Luciano Comignaghi</h2>
 							<span className="title">
 								Assistant to the regional manager
 							</span>
@@ -111,16 +112,16 @@ export default function AboutUs() {
 
 				<div className="column">
 					<div className="card">
-						<div className="card-img-container">
+						<div className="card-img-container-aboutUs">
 							<img
-								className="card-img"
+								className="card-img-aboutUs"
 								src="/assets/images/The Crew.jpeg"
 								alt="Familia Comignaghi"
 								style={{ width: '100%' }}
 							/>
 						</div>
 						<div className="container">
-							<h2>The Crew</h2>
+							<h2 className='aboutUs-title2'>The Crew Comignaghi</h2>
 							<span className="title">Full crew</span>
 							<br />
 							<span>

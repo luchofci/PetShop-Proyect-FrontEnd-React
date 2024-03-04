@@ -1,0 +1,121 @@
+.adoption-section {
+    background-color: var(--light-color);
+    padding: 5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.adoption-section h1 {
+    margin-bottom: 2rem;
+    font-size: 35px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color:var(--primery-color);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px var(--light-color),
+        1px 2px 0px var(--light-color),
+        1px 3px 0px var(--light-color),
+        1px 4px 0px var(--light-color),
+        1px 5px 0px var(--light-color),
+        1px 6px 0px var(--light-color),
+        1px 10px 5px rgba(16, 16, 16, 0.5),
+        1px 15px 10px rgba(16, 16, 16, 0.4),
+        1px 20px 30px rgba(16, 16, 16, 0.3),
+        1px 25px 50px rgba(16, 16, 16, 0.2);
+}
+
+
+.adoption-section p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.adoption-section ul {
+    list-style: disc;
+    text-align: center;
+    text-decoration: none;
+}
+
+.adoption-section ul li {
+    font-size: 16px;
+    color: #666;
+    padding: .5rem;
+    list-style-type: none;
+
+    
+}
+.p-xq-adoptar{
+    font-weight: bolder;
+    padding: 1rem;
+}
+
+
+.adoption-process {
+    background-color: #fff;
+    padding: 5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.adoption-process h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.adoption-process p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.adoption-process ul {
+    list-style: decimal;
+    padding-left: 20px;
+    
+}
+
+.adoption-process ul li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    list-style-type: none;
+
+}
+
+
+.colaboradores {
+    background-color: var(--light-color);
+    text-align: center;
+    padding: 5rem;
+    
+
+}
+
+.colaboradores h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.colaboradores p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.colaboradores ul {
+    padding-top: 1rem;
+    list-style-type: none;
+
+}
+.colaboradores-link a{
+    font-weight: bolder;
+    color: #666;
+}
+.colaboradores-link {
+    padding: .5rem;
+}
+
+

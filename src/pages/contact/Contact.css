@@ -1,0 +1,68 @@
+.main-contact{
+    display: flex;
+    align-items: center;
+}
+.section-contact{
+    background-color:var(--bg-nav-footer);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.contact-map{
+    flex: 1 0 500px;
+
+}
+
+.contact-form-container{
+    flex: 1 0 0%;
+    color: var(--text-light);
+    
+}
+.contact-wrapper{
+    padding: 1rem 2rem;
+}
+
+.contact-title{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+
+
+@media screen and (width > 768px){
+    .section-contact{
+        flex-direction: row;
+        
+    }
+    .contact-map{
+        flex-basis: 0;
+            
+    }
+}
+
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .75rem;
+}
+.input-wrapper :is(textarea, input, select) {
+    padding: .5rem .75rem;
+    outline: none;
+    border: 0;
+    border-bottom: 4px solid var(--secondary-color);
+    border-radius: 5px 5px 0 0;
+    font-family: var(--font-family);
+}
+
+.input-wrapper button{
+    padding: .5rem 1rem;
+    color: var(--text-light);
+    border: none;
+    background-color: var(--secondary-color);
+    border-radius: 5px 5px 0 0;
+
+}
