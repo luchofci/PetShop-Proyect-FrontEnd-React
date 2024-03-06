@@ -6,16 +6,17 @@ export default function Footer() {
 			<footer className="main-footer">
 				<section className="footer-section1">
 					<div>
-						Direcciones a Jardín Botánico - Av. Las Heras 4164-4238
-						(Distrito Federal)
-						<p className="telefono"> Tel: 11.1.234.5478 </p>
+						<p className='direccion'>Direcciones a Jardín Botánico</p>
+						<p>Av. Las Heras 4164-4238
+						(Distrito Federal)</p>
+						<p className="direccion"> Tel: 11.1.234.5478 </p>
 					</div>
 				</section>
 				<section className="footer-section2">
 					<div>
 						<img
 							className="footer-logo"
-							src="/assets/images/logo-no-background.png"
+							srcSet='/src/assets/image/Logo-Nav.png'
 							alt="Footer Logo"
 						/>
 					</div>
@@ -25,7 +26,7 @@ export default function Footer() {
 						<a className="footer-link" href="">
 							<img
 								className="logo-IG"
-								src="/assets/images/FOTO IG TRANSPARENTE 2.png"
+								srcSet="/src/assets/image/FOTO-IG-TRANSPARENTE.png"
 								alt="logo-insta"
 							/>
 							@PetShopbyTabuyOdin
@@ -35,7 +36,7 @@ export default function Footer() {
 						<a className="footer-link" href="">
 							<img
 								className="logo-YT"
-								src="/assets/images/FOTO YT LOGO2.png"
+								srcSet="/src/assets/image/FOTO-YT-LOGO.png"
 								alt="logo-youtube"
 							/>{' '}
 							@PetShopbyTabuyOdin
@@ -45,7 +46,7 @@ export default function Footer() {
 						<a className="footer-link" href="">
 							<img
 								className="logo-FB"
-								src="/assets/images/FOTO FB TRANSPARENTE4 .png"
+								srcSet="/src/assets/image/Logo-FB.png"
 								alt="logo-fb"
 							/>
 							@PetShopbyTabuyOdin

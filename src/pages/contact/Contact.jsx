@@ -4,7 +4,7 @@ import './Contact.css'
 export default function contact() {
 	return (
 		<Layout>
-			<main className="main-container main-contact">
+			<main className=" main-contact">
 				<section className="section-contact">
 					<div className="contact-form-container">
 						<div className="contact-wrapper">

@@ -1,6 +1,7 @@
 .main-contact{
     display: flex;
     align-items: center;
+    flex: 1;
 }
 .section-contact{
     background-color:var(--bg-nav-footer);

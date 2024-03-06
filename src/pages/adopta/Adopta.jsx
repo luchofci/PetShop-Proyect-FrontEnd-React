@@ -37,11 +37,11 @@ export default function Adopta() {
             <h2>Colaboradores de 4 patitas</h2>
             <p>Aquí podrás encontrar una gran cantidad de hermanitos gatunos y perrunos que necesitan encontrar a una familia que los quiera como merecen.</p>
             <ul>
-                <li className="colaboradores-link"><a href="https://instagram.com/gatitosdebelgrano?igshid=MzRlODBiNWFlZA==">Gatitos de Belgrano</a></li>
-                <li className="colaboradores-link"><a href="https://instagram.com/adopcionesalrescate?igshid=MzRlODBiNWFlZA==">Adopcion Al Rescate</a></li>
-                <li className="colaboradores-link"><a href="https://instagram.com/adopciondegatoscaba?igshid=MzRlODBiNWFlZA==">Adopcion de Gatos CABA ARG</a></li>
-                <li className="colaboradores-link"><a href="https://instagram.com/mascotasenadopcionargentina?igshid=MzRlODBiNWFlZA==">Mascotas en Adopcion Argentina</a></li>
-                <li className="colaboradores-link"><a href="https://instagram.com/rescataditosenadopcionn?igshid=MzRlODBiNWFlZA==">Asociacion Rescataditos en Adopcion</a></li>
+                <li className="colaboradores-link"><a target="_blank" href="https://instagram.com/gatitosdebelgrano?igshid=MzRlODBiNWFlZA==">Gatitos de Belgrano</a></li>
+                <li className="colaboradores-link"><a target="_blank" href="https://instagram.com/adopcionesalrescate?igshid=MzRlODBiNWFlZA==">Adopcion Al Rescate</a></li>
+                <li className="colaboradores-link"><a target="_blank" href="https://instagram.com/adopciondegatoscaba?igshid=MzRlODBiNWFlZA==">Adopcion de Gatos CABA ARG</a></li>
+                <li className="colaboradores-link"><a target="_blank" href="https://instagram.com/mascotasenadopcionargentina?igshid=MzRlODBiNWFlZA==">Mascotas en Adopcion Argentina</a></li>
+                <li className="colaboradores-link"><a target="_blank" href="https://instagram.com/rescataditosenadopcionn?igshid=MzRlODBiNWFlZA==">Asociacion Rescataditos en Adopcion</a></li>
             </ul>
         </section>
 

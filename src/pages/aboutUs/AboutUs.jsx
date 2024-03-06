@@ -33,7 +33,7 @@ export default function AboutUs() {
 						<div className="card-img-container-aboutUs">
 						<img
 							className="card-img-aboutUs"
-							src="/assets/images/Tabu.jpeg"
+							srcSet="/src/assets/image/Tabu.jpeg"
 							alt="Tabu"
 							style={{ width: '100%' }}
 						/>
@@ -60,7 +60,7 @@ export default function AboutUs() {
 						<div className="card-img-container-aboutUs">
 							<img
 								className="card-img-aboutUs"
-								src="/assets/images/Odin.jpeg"
+								srcSet="/src/assets/image/Odin.jpeg"
 								alt="Odin"
 								style={{ width: '100%' }}
 								/>
@@ -87,7 +87,7 @@ export default function AboutUs() {
 						<div className="card-img-container-aboutUs">
 							<img
 								className="card-img-aboutUs"
-								src="/assets/images/Luciano.jpeg"
+								srcSet="/src/assets/image/Luciano.jpeg"
 								alt="Luciano Comignaghi"
 								style={{ width: '100%' }}/>
 						</div>
@@ -115,7 +115,7 @@ export default function AboutUs() {
 						<div className="card-img-container-aboutUs">
 							<img
 								className="card-img-aboutUs"
-								src="/assets/images/The Crew.jpeg"
+								srcSet="/src/assets/image/The-Crew.jpeg"
 								alt="Familia Comignaghi"
 								style={{ width: '100%' }}
 							/>

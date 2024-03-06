@@ -110,7 +110,7 @@ body {
 }
 
 .nav-link.active {
-    background-color: rgb(42, 115, 188);
+    background-color: var(--dark-color);
 
 }
 

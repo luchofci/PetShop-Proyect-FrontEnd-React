@@ -72,7 +72,7 @@
 }
 
 .register-button {
-    background-color: var(--primery-color);
+    background-color: var(--dark-color);
     width: 100%;
     height: 2.25rem;
     border: 2px solid transparent;
