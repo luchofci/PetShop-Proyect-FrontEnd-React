@@ -22,3 +22,8 @@ body {
   flex-direction: column;
 
 }
+
+main{
+  min-height: calc(100vh - 54px - 284px);
+
+}
