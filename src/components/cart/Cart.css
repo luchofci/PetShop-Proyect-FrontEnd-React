@@ -27,7 +27,7 @@
 		padding-top: 3rem;
 
 		h2 {
-			color: #666;
+			color: rgb(67, 79, 92);
 			font-size: 1.25rem;
 			text-transform: uppercase;
 		}
@@ -86,32 +86,59 @@
 			align-items: flex-end;
 
 			a {
-				font-size: 0.75rem;
-				color: orange;
+				display: inline-flex;
+				align-items: center;
+				padding: 0.5rem 1rem;
+				font-size: 0.8rem;
+				color: #fff;
+				background-color: #ff8c00;
+				border-radius: 5px;
+				text-decoration: none;
+				cursor: pointer;
+				transition: background-color 0.3s ease, font-size 0.3s ease;
+
+				&:hover {
+					background-color: #ff4500;
+					font-size: 0.9rem;
+				}
 			}
 
 			button {
-				margin: 0;
+				padding: 0.5rem 1rem;
+				font-size: 1rem;
+				background-color:var(--dark-color); 
+				color: #fff;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.5s ease;
+
+				&:hover {
+					background-color: #45a049;
+					transform: scale(1.10);
 			}
 		}
-	}
+	} 
 
 	.total {
 		display: flex;
+		align-items: center; 
 		justify-content: space-between;
 		padding: 1rem;
-		border-top: 1px solid #c8e2ff;
 		font-weight: bold;
+		background-color: var(--light-color); 
+		border-top: 1px solid var(--dark-color);
 
 		.total-count {
 			color: #555;
-			font-size: 0.875rem;
+			font-size: 1rem;
 		}
 
 		.total-price {
 			span {
-				font-size: 1.5rem;
+			font-size: 1.5rem;
+			color: #4caf50;
 			}
 		}
 	}
-}
+}}

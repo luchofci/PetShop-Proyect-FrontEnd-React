@@ -65,7 +65,6 @@ body {
 .main-nav-mobile{
 	position: fixed;
 	left: 0;
-	/* Al definir top y bottom le decimos al elemento que se deba estirar y obtenga alguna altura */
 	top: 54px;
 	bottom: 0;
 	width: 0;
@@ -103,6 +102,27 @@ body {
 	text-decoration: none;
 }
 
+.nav-item .nav-link.login-register{
+	padding: 0.5rem 1rem; 
+	font-weight: bold; 
+	background-color: var(--light-color); 
+	color: var(--dark-color);
+	border-radius: 5px; 
+	margin-top: 0.5rem;
+	transition: background-color 0.3s ease, margin-top 0.3s ease;
+}
+
+.nav-item .nav-link.login-register:hover {
+	background-color:var(--dark-color); 
+	color: var(--light-color);
+	margin-top: 0.3rem
+}
+
+
+
+
+
+
 .nav-item .nav-link:hover {
 	background-color: rgb(22, 103, 128);
 	color: white;
@@ -113,24 +133,33 @@ body {
 }
 
 .user-menu {
-	/* width: 40px; */
-	/* height: 20px;  */
-	/* object-fit: cover;  */
 	display: flex;
 }
 
-.nav-link.active {
-	background-color: var(--dark-color);
-}
+.nav-link.login-register.active {
+	background-color: rgb(22, 103, 128);
+	color: white;}
 
 /* ------------------------------ */
+
+.user-info * {
+	display: flex;
+	align-items: center;
+}
+.user-info .icon-container {
+	margin-right: 1rem; 
+}
+
+.user-info .user-avatar {
+	margin-left: 1rem; 
+}
+
 .user-info {
 	display: flex;
-	gap: 0.5rem;
+	gap: 2rem;
 	margin-left: auto;
 	color: white;
 	padding-inline: 1rem;
-	background-color: rgb(126, 126, 28);
 
 	.user-avatar {
 		padding: 0.25rem;

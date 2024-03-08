@@ -1,0 +1,17 @@
+.table-container {
+    flex: 1 0 0;
+  }
+
+  .table-admin{
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .table-admin thead{
+    background-color: var(--dark-color);
+    color: white;
+  }
+  .table-admin td,
+  .table-admin th {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }

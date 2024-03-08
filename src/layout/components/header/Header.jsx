@@ -32,7 +32,6 @@ export default function Header() {
 			<nav className="main-nav">
 				<div className="nav-list">
 					<div className="nav-item">
-						{/* VER LAS CLASSNAME DE LOS NAVLINK */}
 						<NavLink
 							to="/"
 							className={({ isActive }) =>
@@ -138,12 +137,18 @@ export default function Header() {
 						<div
 							style={{
 								display: 'flex',
-								'justify-content': 'space-around',
-								'align-items': 'center',
+								'justifyContent': 'space-around',
+								'alignItems': 'center',
+								'padding': '10px 0'
 							}}
 						>
 							<div className="icon-container">
 								<i
+									style={{
+										fontSize: '1.5rem', 
+										color: 'rgb(67, 79, 92)', 
+										cursor: 'pointer', 
+									}}
 									className="cart-icon fa-solid fa-cart-shopping"
 									data-count={totalItems}
 									onClick={() => toggleMenu()}
@@ -159,13 +164,13 @@ export default function Header() {
 				) : (
 					<>
 						<div className="nav-item">
-							<NavLink to="/login" className="nav-link">
+							<NavLink to="/login" className="nav-link login-register">
 								Login
 							</NavLink>
 						</div>
 
-						<div className="nav-item">
-							<NavLink to="/register" className="nav-link">
+						<div className="nav-item ">
+							<NavLink to="/register" className="nav-link login-register">
 								Registro
 							</NavLink>
 						</div>
@@ -174,29 +179,28 @@ export default function Header() {
 
 				<div className="nav-list">
 					<div className="nav-item">
-						{/* VER LAS CLASSNAME DE LOS NAVLINK */}
 						<NavLink
 							to="/"
 							className={({ isActive }) =>
-								isActive ? 'nav-link active' : 'nav-link'
+								isActive ? 'nav-link login-register  active' : 'nav-link login-register'
 							}
 						>
 							Principal
 						</NavLink>
 					</div>
 					<div className="nav-item">
-						<NavLink to="/contact" className="nav-link">
+						<NavLink to="/contact" className="nav-link login-register">
 							Contacto
 						</NavLink>
 					</div>
 
 					<div className="nav-item">
-						<NavLink to="/about-us" className="nav-link">
+						<NavLink to="/about-us" className="nav-link login-register">
 							Nosotros
 						</NavLink>
 					</div>
 					<div className="nav-item">
-						<NavLink to="/adopta" className="nav-link">
+						<NavLink to="/adopta" className="nav-link login-register">
 							"ADOPTA"
 						</NavLink>
 					</div>
@@ -206,13 +210,13 @@ export default function Header() {
 							<div className="nav-item">
 								<NavLink
 									to="/admin-product"
-									className="nav-link"
+									className="nav-link login-register"
 								>
 									Admin Product
 								</NavLink>
 							</div>
 							<div className="nav-item">
-								<NavLink to="/admin-user" className="nav-link">
+								<NavLink to="/admin-user" className="nav-link login-register">
 									Admin User
 								</NavLink>
 							</div>
@@ -223,13 +227,14 @@ export default function Header() {
 					{user && (
 						<>
 							<div className="nav-item">
-								<NavLink to="/orders" className="nav-link">
+								<NavLink to="/orders" className="nav-link login-register">
 									Ordenes
 								</NavLink>
 							</div>
 							<div className="nav-item">
 								<a
-									className="nav-link"
+									style={{cursor:'pointer'}}
+									className="nav-link login-register"
 									onClick={() => logout()}
 								>
 									<i className="pointer fa-solid fa-arrow-right-from-bracket"></i>
