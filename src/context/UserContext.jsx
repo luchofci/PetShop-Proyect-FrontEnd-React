@@ -9,7 +9,6 @@ export const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-
 	const [user, setUser] = useState(() =>
 		JSON.parse(localStorage.getItem('currentUser'))
 	);
@@ -19,13 +18,13 @@ export const UserProvider = ({ children }) => {
 			JSON.parse(localStorage.getItem('currentUser'))?.role ===
 			'ADMIN_ROLE'
 	);
-	
+
 	const navigate = useNavigate();
 
 	const login = async (loginData) => {
 		try {
 			const response = await axios.post(`${URL}/login`, loginData);
-
+			console.log(response);
 			const tokenResponse = response.data.token;
 			const userResponse = response.data.user;
 

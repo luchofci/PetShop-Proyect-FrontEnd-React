@@ -7,7 +7,8 @@ import Adopta from '../pages/adopta/Adopta';
 import Login from '../pages/login/Login';
 import AdminProduct from '../pages/adminProduct/AdminProduct';
 import AdminUser from '../pages/adminUser/AdminUser';
-import AdminRoute from './guard/adminRoute/AdminRoute';
+import AdminRoute from './guard/adminRoute/adminRoute'
+import ProductDetail from '../pages/productDetail/ProductDetail'
 
 export default function AppRoutes() {
 	return (
@@ -17,8 +18,8 @@ export default function AppRoutes() {
 			<Route path="/register" element={<Register />} />
 			<Route path="/about-us" element={<AboutUs />} />
 			<Route path="/adopta" element={<Adopta />} />
-			{/* <Route path='product-detail/:id' element={<ProductDetail/>}/> */}
-			<Route path="/login" element={<Login />} />
+			<Route path="/product-detail/:id" element={<ProductDetail/>}/>
+			<Route path="/login" element={<Login/>}/>
 
 			<Route
 				path="/admin-product"
@@ -42,3 +43,4 @@ export default function AppRoutes() {
 		</Routes>
 	);
 }
+

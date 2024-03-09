@@ -26,7 +26,7 @@ export const OrderProvider = ({ children }) => {
 
 
     function addItem(item){
-        const itemIndex = order.findIndex((prod) =>prod.prodtId === item._id);
+        const itemIndex = order.findIndex((prod) =>prod.productId === item._id);
         let newOrder;
         if(itemIndex >= 0){
             newOrder = order.map((producto)=>{
