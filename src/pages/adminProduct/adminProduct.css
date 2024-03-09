@@ -1,0 +1,144 @@
+/* 
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-light);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+h1{
+    margin-bottom: 2rem;
+} */
+
+/* .body-container{
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    
+} */
+
+/* ESTA ES LA CAJA DEL FORM */
+.product-data-container{
+    padding: 0 30px;
+    
+} 
+
+/* user form*/
+.product-data-form {
+    max-width: 600px;
+    padding: 15px;
+    background-color:var(--light-color);
+    margin-inline: auto;
+}
+/* input group */
+.input-group {
+    margin: 0 auto;
+    margin-bottom: .75rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--dark-color);
+    font-weight: bold;
+    
+    :is(input, textarea, select) {
+        padding: .375rem .675rem;
+        font-size: 1rem;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        border-bottom: 3px solid lightblue;
+    }
+}
+
+
+
+.btn-form {
+    background-color: var(--dark-color);
+    color: white;
+    padding: .5rem .75rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    
+    &.btn-edit{
+        background-color: green;
+    }
+
+}
+
+
+/* ESTA ES LA CAJA DE LA TABLA DE USUARIOS */
+.table-product-container{
+    padding: 1rem;
+    
+}
+
+
+.primary-table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0 15px;
+    
+}
+.primary-table :is(th, td) {
+    padding: 0 5px;
+    border: 1px solid darkcyan;
+}
+
+tr:nth-child(even) {
+    background-color: var(--light-color); 
+}
+
+
+
+.table-head {
+    background-color:var(--dark-color);
+    color: var(--light-color);
+    
+}
+
+.primary-table thead tr th{
+    padding: 10px;
+}
+
+.primary-table tbody tr td{
+    text-align: center;
+    padding: 0.5rem;
+}
+
+
+.table-product-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+
+
+.action-btn{
+    background-color: green;
+    color: white;
+    padding: .25rem;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+
+    &:not(:last-child){
+        margin-right: 5px;
+    }
+    &.btn-danger{
+        background-color: crimson;
+    }
+}
+
+.second-title {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: var(--primery-color);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px var(--light-color), 1px 2px 0px var(--light-color), 1px 3px 0px var(--light-color), 1px 4px 0px var(--light-color), 1px 5px 0px var(--light-color), 1px 6px 0px var(--light-color), 1px 10px 5px rgba(16, 16, 16, 0.5), 1px 15px 10px rgba(16, 16, 16, 0.4), 1px 20px 30px rgba(16, 16, 16, 0.3), 1px 25px 50px rgba(16, 16, 16, 0.2);
+}

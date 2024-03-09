@@ -1,16 +1,22 @@
 import defaultPicture from '../../assets/image/defult-profile-picture.png';
 import './userTableRow.css'
+
 const URL = import.meta.env.VITE_SERVER_URL
 
 
 export const UserTableRow = ({ usr, deleteUser, setFormValue }) => {
+	const doesImageExist = (url) => {
+		const img = new Image();
+		img.src = url;
+		return img.complete || img.width + img.height > 0;
+	};
 	return (
 		<tr key={usr._id}>
 			<td className="table-img">
-				<img
-					srcSet={usr.image ? `${URL}/images/users/${usr.image}` : defaultPicture}
-					alt={`${usr.name} profile picture`}
-				/>
+			<img
+				src={usr.image && doesImageExist(`${URL}/images/users/${usr.image}`) ? `${URL}/images/users/${usr.image}` : defaultPicture}
+				alt={`${usr.name} profile picture`}
+			/>
 			</td>
 			<td className="table-name">{usr.name}</td>
 			<td className="table-email">{usr.email}</td>

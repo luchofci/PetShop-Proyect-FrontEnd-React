@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../../layout/layout';
+import './ProductDetail.css'
 
 const URL = import.meta.env.VITE_SERVER_URL;
 
@@ -26,11 +27,26 @@ export const ProductDetail = () => {
 	}
 	return (
 		<Layout>
-			<h1>{product.frontName}</h1>
-            <p>{product.frontDescription}</p>
-            <h2>{product.backtName}</h2>
-			<p>{product.backDescription}</p>
-			<p>{product.price}</p>
+			<div className="product-detail-container">
+
+			{product.image && (
+				<img
+				className="product-image"
+				src={`${URL}/images/products/${product.image}`}
+				alt={product.frontName}
+				/>
+				)}
+			<h1 className="product-title">{product.frontName}</h1>
+			<p className="product-description">{product.frontDescription}</p>
+			<h2 className="back-title">{product.backtName}</h2>
+			<p className="back-description">{product.backDescription}</p>
+			<p className="product-price">${product.price}</p>
+			<Link className="link-back" to="/products">
+          &#8592; Volver a la lista de productos
+        </Link>
+        <button className="button-buy">Comprar</button>
+			</div>
 		</Layout>
 	);
 };
+export default ProductDetail;

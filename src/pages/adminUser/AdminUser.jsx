@@ -13,7 +13,6 @@ const TOKEN = localStorage.getItem('token');
 
 export default function AdminUser() {
 	const [dbUsers, setDbUsers] = useState([]);
-	// const [ isFormEdit, setIsFormEdit ] = useState(false);
 	const [categories, setCategories] = useState([]);
 	const [userId, setUserId] = useState();
 	const [total, setTotal] = useState(0);
@@ -32,7 +31,6 @@ export default function AdminUser() {
 
 			setDbUsers(users);
 			setTotal(total);
-			console.log(users)
 		} catch (error) {
 			console.log(error);
 			Swal.fire({
@@ -111,10 +109,7 @@ export default function AdminUser() {
 	// Obtener data del formulario y hacer un POST o un PUT
 	async function submitedData(data) {
 		try {
-			console.log(data);
-			// VAmos a definir si tenemos q ahcer un
-			// POST : aniadir usuario o
-			// PUT: vamos a editar usuario
+			
 			const formData = new FormData();
 
 			formData.append('name', data.name);
@@ -128,12 +123,13 @@ export default function AdminUser() {
 
 			if (userId) {
 				if (!TOKEN) return;
-				// Me falta aniadir el token
+				
 				const response = await axios.put(`${URL}/users/${userId}`, formData, {
 					headers: {
 						authorization: TOKEN,
 					},
 				});
+				console.log(response)
 				Swal.fire({
 					title: 'Usuario Editado Correctamente',
 					text: `El usuario ${response.data.user.name} fue editado correctamente`,
@@ -159,7 +155,7 @@ export default function AdminUser() {
 				title: 'No se creo usuario',
 				text: 'Alguno de los datos ingresados no es correcto',
 			});
-			if (error.response.status === 401) return logout();
+			// if (error.response.status === 401) return logout();
 		}
 	}
 
@@ -167,8 +163,7 @@ export default function AdminUser() {
 		// Iteramos propiedades
 		setValue('name', user?.name || '');
 		setValue('email', user?.email || '');
-		setUserId(user?._id || ''); // Ocultamos la pass
-		// setValue("password", user.password)
+		setUserId(user?._id || ''); 
 		setValue('age', user?.age || '');
 		setValue('image', user?.image || '');
 		setValue('location', user?.location || '');
@@ -243,7 +238,7 @@ export default function AdminUser() {
                     </div>
                     
                     <div className="input-group">
-                        <label htmlFor="image">Url de la imagen</label>
+                        <label htmlFor="image">Imagen</label>
                         <input type="file" name="image" id="image" accept="image/*" {...register('image')}/>
                     </div>
 
@@ -345,9 +340,9 @@ export default function AdminUser() {
 
 
 			<div className="table-container">
-					{/* Tabla de mis productos para manejar el CRUD de los mismos */}
+					{/* Tabla de mis usuarios para manejar el CRUD de los mismos */}
 					<div className="flex-between">
-						<h2>Tabla de Usuarios</h2>
+						<h2 className= 'second-title'>Tabla de Usuarios</h2>
 						<div className="imput-group">
 							<input style={{ margin: "0.5rem auto"}} type="text" onKeyUp={handleSearch} />
 						</div>
