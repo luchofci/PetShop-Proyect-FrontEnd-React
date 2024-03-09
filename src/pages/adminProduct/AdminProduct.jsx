@@ -399,10 +399,14 @@ export default function AdminProduct() {
 							<div>
 								<button
 									id="product-data-form-submit-btn"
-									className="btn-form"
+									className={
+										productId ? 'btn-success' : 'btn-form'
+									}
 									type="submit"
 								>
-									Agregar Producto
+									{productId
+										? 'Editar Producto'
+										: 'Añadir Producto'}
 								</button>
 							</div>
 						</form>

@@ -1,7 +1,49 @@
+import Swal from "sweetalert2";
+import axios from "axios";
+import { useForm } from "react-hook-form";
 import Layout from "../../layout/layout";
 import './Register.css'
 
 export default function Register() {
+
+	const { register, handleSubmit, reset } = useForm();
+	const URL = import.meta.env.VITE_SERVER_URL;
+
+	async function submitedData(data) {
+		try {
+			const formData = new FormData();
+
+			formData.append('name', data.name);
+			formData.append('email', data.email);
+			formData.append('password', data.password);
+			formData.append('age', data.age);
+			formData.append('location', data.location);
+			if (data.image && data.image.length > 0 && data.image[0] instanceof File) {
+				formData.append("image", data.image[0]);
+			}
+
+			const response = await axios.post(`${URL}/users`, formData);
+
+			Swal.fire({
+				title: 'Usuario Creado',
+				text: `El usuario ${response.data.user?.name} fue creado correctamente`,
+				icon: 'success',
+			});
+			reset();
+			
+		} catch (error) {
+			console.log(error);
+			Swal.fire({
+				icon: 'error',
+				title: 'No se creo usuario',
+				text: 'Alguno de los datos ingresados no es correcto',
+			});
+			// if (error.response.status === 401) return logout();
+		}
+	}
+
+
+
 	return (
 		<Layout>
 			<div className="formulario-container">
@@ -10,23 +52,23 @@ export default function Register() {
 				<form
 					className="user-register-form"
 					id="user-register-form"
-					// onSubmit={submitUserRegisterForm(event)}
+					onSubmit={handleSubmit(submitedData)}
 					encType="multipart/form-data"
 					>
 					<div className="input-group">
-						<label htmlFor="inputName">Nombre Completo</label>
+						<label htmlFor="name">Nombre Completo</label>
 						<input
 							className="register-inputs"
 							type="text"
-							name="inputName"
+							name="name"
 							id="inputName"
 							title="Ingrese Nombre Completo"
 							placeholder="John Doe"
 							minLength="4"
 							maxLength="50"
-							pattern="^[a-zA-Z]+( [a-zA-Z])*$"
 							autoFocus
 							required
+							{...register('name')}
 						/>
 					</div>
 
@@ -41,8 +83,9 @@ export default function Register() {
 							minLength="6"
 							maxLength="140"
 							placeholder="Johndoe@gmail.com"
-							pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
+							// pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
 							required
+							{...register('email')}
 						/>
 					</div>
 
@@ -52,14 +95,15 @@ export default function Register() {
 						<input
 							className="register-inputs"
 							type="password"
-							name="inputPassword"
-							id="inputPassword"
+							name="password"
+							id="password"
 							minLength="5"
 							maxLength="20"
 							title="Debe tener entre 5 a 20 Caracteres y al menos 1 de cada elemento 'A-Z / Symbols / Numbers'"
 							placeholder="********"
 							pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 							required
+							{...register('password')}
 						/>
 					</div>
 
@@ -71,28 +115,27 @@ export default function Register() {
 						<input
 							className="register-inputs"
 							type="password"
-							name="inputPassword2"
-							id="inputPassword2"
+							name="password"
+							id="password2"
 							minLength="5"
 							maxLength="20"
 							title="Debe tener minimo 5 Caracteres y al menos 1 de cada elemento 'A-Z / Symbols / Numbers'"
 							placeholder="********"
 							pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 							required
+							{...register('password')}
 						/>
 					</div>
 
 					<div className="input-group">
-						<label htmlFor="inputDate">Fecha de Nacimiento</label>
+						<label htmlFor="inputDate">Edad</label>
 						<br />
 						<input
-							className="register-inputs"
-							type="date"
-							name="inputDate"
-							id="inputDate"
-							min="1900-01-01"
-							max="2024-01-01"
-						/>
+										type="number"
+										name="inputDate"
+										id="inputDate"
+										{...register('age')}
+									/>
 					</div>
 
 					<div className="input-group">
@@ -100,7 +143,8 @@ export default function Register() {
 							Seleccione su provincia
 						</label>
 						<br />
-						<select name="pais" id="inputPais" required className="register-select">
+						<select name="location" id="location" required className="register-select"
+						{...register('location')}>
 							<option value="buenos_aires">Buenos Aires</option>
 							<option value="capital_federal">
 								Capital Federal
@@ -138,10 +182,11 @@ export default function Register() {
 						<label htmlFor="">Observacion</label>
 						<textarea
 							className="register-textarea"
-							name="observacion"
-							id=""
+							name="observation"
+							id="observation"
 							cols="50"
 							rows="4"
+							{...register('observation')}
 						></textarea>
 					</div>
 

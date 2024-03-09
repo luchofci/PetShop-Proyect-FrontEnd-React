@@ -1,4 +1,4 @@
-import './adminUser.css'
+import './adminUser.css';
 import Layout from '../../layout/layout';
 import Swal from 'sweetalert2';
 import axios from 'axios';
@@ -19,13 +19,12 @@ export default function AdminUser() {
 	const [total, setTotal] = useState(0);
 	const [limit, setLimit] = useState(10);
 	const navigate = useNavigate();
-	
 
 	// -Obtener usuarios
 	async function getUsers(page = 0) {
 		try {
 			const response = await axios.get(
-				`${URL}/users?page=${page}&limit=${limit}`,
+				`${URL}/users?page=${page}&limit=${limit}`
 			);
 			const users = response.data.users;
 			const total = response.data.total;
@@ -92,7 +91,7 @@ export default function AdminUser() {
 			getUsers();
 			getCategories();
 		}, // Funcion que se ejecuta cuando se monta el componente
-		[limit],
+		[limit]
 	);
 
 	async function getCategories() {
@@ -123,13 +122,17 @@ export default function AdminUser() {
 
 			if (userId) {
 				if (!TOKEN) return;
-				
-				const response = await axios.put(`${URL}/users/${userId}`,  formData, {
-					headers: {
-						authorization: TOKEN,
-					},
-				});
-				console.log(response)
+
+				const response = await axios.put(
+					`${URL}/users/${userId}`,
+					formData,
+					{
+						headers: {
+							authorization: TOKEN,
+						},
+					}
+				);
+				console.log(response);
 				Swal.fire({
 					title: 'Usuario Editado Correctamente',
 					text: `El usuario ${response.data.user.name} fue editado correctamente`,
@@ -137,12 +140,12 @@ export default function AdminUser() {
 				});
 				getUsers();
 				setUserId(null);
-				reset()
-				return true; // 
+				reset();
+				return true; //
 			}
 
 			const response = await axios.post(`${URL}/users`, formData);
-			
+
 			Swal.fire({
 				title: 'Usuario Creado',
 				text: `El usuario ${response.data.user?.name} fue creado correctamente`,
@@ -165,7 +168,6 @@ export default function AdminUser() {
 	}, [userId]);
 
 	function getDefaultValueForImage() {
-		
 		return '';
 	}
 
@@ -173,9 +175,14 @@ export default function AdminUser() {
 		// Iteramos propiedades
 		setValue('name', user?.name || '');
 		setValue('email', user?.email || '');
-		setUserId(user?._id || ''); 
+		setUserId(user?._id || '');
 		setValue('age', user?.age || '');
-		setValue('image', user?.image !== undefined ? [user?.image] : getDefaultValueForImage());
+		setValue(
+			'image',
+			user?.image !== undefined
+				? [user?.image]
+				: getDefaultValueForImage()
+		);
 		setValue('location', user?.location || '');
 		setValue('role', user?.role || '');
 		setValue('active', user?.active || '');
@@ -203,185 +210,309 @@ export default function AdminUser() {
 		}
 	}
 
-
 	return (
-	
 		<Layout>
-			<Cart/>
+			<Cart />
 			<>
-			<div className="main-container">
-				<h1 className="main-title">Lista de Usuarios
-					
-				</h1>
+				<div className="main-container">
+					<h1 className="main-title">Lista de Usuarios</h1>
 
-        <div className="body-container">
-            <div className="user-data-container">
-				
-                <form 
-					id="user-data-form" 
-					onSubmit={handleSubmit(submitedData)} 
-					encType='multipart/form-data'>
-						{userId && (
-						<button
-							className="btn btn-delete btn-right"
-							onClick={() => setFormValue()}
+					<div className="body-container">
+						<div className="user-data-container">
+							<form
+								id="user-data-form"
+								onSubmit={handleSubmit(submitedData)}
+								encType="multipart/form-data"
+							>
+								{userId && (
+									<button
+										className="btn btn-delete btn-right"
+										onClick={() => setFormValue()}
+									>
+										x
+									</button>
+								)}
+
+								<input
+									type="hidden"
+									id="userId"
+									name="userId"
+								/>
+
+								<div className="input-group">
+									<label htmlFor="user">
+										Nombre Completo
+									</label>
+									<br />
+									<input
+										type="text"
+										name="name"
+										id="user"
+										title="Ingrese Nombre Completo"
+										placeholder="John Doe"
+										minLength="4"
+										maxLength="50"
+										autoFocus
+										required
+										{...register('name')}
+									/>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="inputCorreo">
+										Correo Electronico
+									</label>
+									<br />
+									<input
+										type="email"
+										name="email"
+										id="email"
+										minLength="6"
+										maxLength="140"
+										placeholder="Johndoe@gmail.com"
+										pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
+										required
+										{...register('email')}
+									/>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="image">Imagen</label>
+									<input
+										type="file"
+										name="image"
+										id="image"
+										accept="image/*"
+										{...register('image')}
+									/>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="password">Contraseña</label>
+									<br />
+									<input
+										type="password"
+										name="inputPassword"
+										id="inputPassword"
+										minLength="5"
+										maxLength="20"
+										title="Debe tener entre 5 a 20 Caracteres y al menos 1 de cada elemento 'A-Z / Symbols / Numbers'"
+										placeholder="********"
+										pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+										disabled={userId}
+										required
+										{...register('password')}
+									/>{' '}
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="inputPassword2">
+										Repetir Contraseña
+									</label>
+									<br />
+									<input
+										type="password"
+										name="inputPassword2"
+										id="inputPassword2"
+										minLength="5"
+										maxLength="20"
+										title="Debe tener minimo 5 Caracteres y al menos 1 de cada elemento 'A-Z / Symbols / Numbers'"
+										placeholder="********"
+										pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+										required
+										disabled={userId}
+										{...register('password')}
+									/>{' '}
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="inputDate">Edad</label>
+									<br />
+									<input
+										type="number"
+										name="inputDate"
+										id="inputDate"
+										{...register('age')}
+									/>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="location">
+										Seleccione su localidad
+									</label>
+									<br />
+									<select
+										name="location"
+										id="location"
+										{...register('location')}
+									>
+										<option value="buenos_aires">
+											Buenos Aires
+										</option>
+										<option value="capital-federal">
+											Capital Federal
+										</option>
+										<option value="catamarca">
+											Catamarca
+										</option>
+										<option value="chaco">Chaco</option>
+										<option value="chubut">Chubut</option>
+										<option value="cordoba">Cordoba</option>
+										<option value="corrientes">
+											Corrientes
+										</option>
+										<option value="entre_rios">
+											Entre Rios
+										</option>
+										<option value="formosa">Formosa</option>
+										<option value="jujuy">Jujuy</option>
+										<option value="la_pampa">
+											La Pampa
+										</option>
+										<option value="la_rioja">
+											La Rioja
+										</option>
+										<option value="mendoza">Mendoza</option>
+										<option value="misiones">
+											Misiones
+										</option>
+										<option value="neuquen">Neuquen</option>
+										<option value="rio_negro">
+											Rio Negro
+										</option>
+										<option value="salta">Salta</option>
+										<option value="san_juan">
+											San Juan
+										</option>
+										<option value="san_luis">
+											San Luis
+										</option>
+										<option value="santa_cruz">
+											Santa Cruz
+										</option>
+										<option value="santa_fe">
+											Santa Fe
+										</option>
+										<option value="santiago_del_estero">
+											Santiago del Estero
+										</option>
+										<option value="tierra_del_fuego">
+											Tierra del Fuego
+										</option>
+										<option value="tucuman">Tucuman</option>
+									</select>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="role">Rol</label>
+									<br />
+									<select
+										name="role"
+										id="role"
+										{...register('role')}
+										required
+									>
+										<option value="USER_ROLE">
+											Usuario
+										</option>
+										<option value="CLIENT_ROLE">
+											Cliente
+										</option>
+										<option value="ADMIN_ROLE">
+											Admin
+										</option>
+									</select>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="active">Activo?</label>
+									<br />
+									<select
+										name="active"
+										id="active"
+										{...register('active')}
+										required
+									>
+										<option value="Activo">Activo</option>
+										<option value="No_Activo">
+											No Activo
+										</option>
+									</select>
+								</div>
+
+								<div className="input-group">
+									<label htmlFor="">Observacion</label>
+									<br />
+									<textarea
+										name="observation"
+										id="observation"
+										cols="25"
+										rows="4"
+										{...register('observation')}
+									></textarea>
+								</div>
+
+								<div>
+									<button
+										id="user-data-form-submit-btn"
+										className={
+											userId ? 'btn-success' : 'btn-form'
+										}
+										type="submit"
+									>
+										{userId
+											? 'Editar Usuario'
+											: 'Añadir Usuario'}
+									</button>
+								</div>
+							</form>
+						</div>
+
+						<div className="table-container">
+							{/* Tabla de mis usuarios para manejar el CRUD de los mismos */}
+							<div className="flex-between">
+								<h2 className="second-title">
+									Tabla de Usuarios
+								</h2>
+								<div className="imput-group">
+									<input
+										style={{ margin: '0.5rem auto' }}
+										type="text"
+										onKeyUp={handleSearch}
+									/>
+								</div>
+							</div>
+							<UserTable
+								users={dbUsers}
+								deleteUser={deleteUser}
+								setFormValue={setFormValue}
+							/>
+							<div className="pagination-container">
+								{Array.from({
+									length: Math.ceil(total / limit),
+								}).map((_, idx) => (
+									<button
+										key={idx}
+										onClick={() => getUsers(idx)}
+									>
+										{idx + 1}
+									</button>
+								))}
+							</div>
+							<div>
+								<select
+									name=""
+									id=""
+									onChange={(e) => setLimit(e.target.value)}
 								>
-									x
-								</button>
-							)}
-
-                    <input type="hidden" id="userId" name="userId"/>
-					
-                    <div className="input-group">
-                        <label htmlFor="user">Nombre Completo</label><br/>
-                        <input type="text" name="inputName" id="user" title="Ingrese Nombre Completo"
-                        placeholder="John Doe" minLength="4" maxLength="50" autoFocus required
-						{...register('name')}/>
-                        
-                    </div>
-                    
-                    <div className="input-group">
-                        <label htmlFor="inputCorreo">Correo Electronico</label><br/>
-                        <input type="email" name="email" id="email" minLength="6" maxLength="140"
-                        placeholder="Johndoe@gmail.com" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$"
-                        required
-						{...register('email')}/>
-                    </div>
-                    
-                    <div className="input-group">
-                        <label htmlFor="image">Imagen</label>
-                        <input type="file" name="image" id="image" accept="image/*" {...register('image')}/>
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="password">Contraseña</label><br/>
-                        <input 
-							type="password" name="inputPassword" id="inputPassword" 
-							minLength="5" 
-							maxLength="20"
-                            title="Debe tener entre 5 a 20 Caracteres y al menos 1 de cada elemento 'A-Z / Symbols / Numbers'"
-                            placeholder="********" 
-							pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-							disabled={userId}
-							required
-							{...register('password')}
-							/>{' '}
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="inputPassword2">Repetir Contraseña</label><br/>
-                        <input type="password" name="inputPassword2" id="inputPassword2" minLength="5" maxLength="20"
-                            title="Debe tener minimo 5 Caracteres y al menos 1 de cada elemento 'A-Z / Symbols / Numbers'"
-                            placeholder="********" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
-							disabled={userId}
-							{...register('password')}
-							/>{' '}
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="inputDate">Edad</label><br/>
-                        <input type="number" name="inputDate" id="inputDate" 
-						{...register('age')}/>
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="location">Seleccione su localidad</label><br/>
-                        <select name="location" id="location"  {...register('location')}>
-                            <option value="buenos_aires">Buenos Aires</option>
-                            <option value="capital-federal">Capital Federal</option>
-                            <option value="catamarca">Catamarca</option>
-                            <option value="chaco">Chaco</option>
-                            <option value="chubut">Chubut</option>
-                            <option value="cordoba">Cordoba</option>
-                            <option value="corrientes">Corrientes</option>
-                            <option value="entre_rios">Entre Rios</option>
-                            <option value="formosa">Formosa</option>
-                            <option value="jujuy">Jujuy</option>
-                            <option value="la_pampa">La Pampa</option>
-                            <option value="la_rioja">La Rioja</option>
-                            <option value="mendoza">Mendoza</option>
-                            <option value="misiones">Misiones</option>
-                            <option value="neuquen">Neuquen</option>
-                            <option value="rio_negro">Rio Negro</option>
-                            <option value="salta">Salta</option>
-                            <option value="san_juan">San Juan</option>
-                            <option value="san_luis">San Luis</option>
-                            <option value="santa_cruz">Santa Cruz</option>
-                            <option value="santa_fe">Santa Fe</option>
-                            <option value="santiago_del_estero">Santiago del Estero</option>
-                            <option value="tierra_del_fuego">Tierra del Fuego</option>
-                            <option value="tucuman">Tucuman</option>
-							
-                        </select>
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="role">Rol</label><br/>
-                        <select name="role" id="role" {...register('role')} required>
-                            <option value="USER_ROLE" >Usuario</option>
-                            <option value="CLIENT_ROLE" >Cliente</option>
-                            <option value="ADMIN_ROLE">Admin</option>
-                        </select>
-
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="active">Activo?</label><br/>
-                        <select name="active" id="active" {...register('active')} required>
-                            <option value="Activo">Activo</option>
-                            <option value="No_Activo">No Activo</option>
-                        </select>
-                    </div>
-
-                    <div className="input-group">
-                        <label htmlFor="">Observacion</label><br/>
-                        <textarea name="observation" id="observation" cols="25" rows="4" {...register('observation')}>
-                        </textarea>
-                    </div>
-
-                    <div>
-                        <button id="user-data-form-submit-btn" className={userId ? 'btn-success' : 'btn-form'} type="submit">
-						{userId ? 'Editar Usuario' : 'Añadir Usuario'}</button>
-
-                    </div>					
-
-                </form>
-
-            </div>
-
-
-			<div className="table-container">
-					{/* Tabla de mis usuarios para manejar el CRUD de los mismos */}
-					<div className="flex-between">
-						<h2 className= 'second-title'>Tabla de Usuarios</h2>
-						<div className="imput-group">
-							<input style={{ margin: "0.5rem auto"}} type="text" onKeyUp={handleSearch} />
+									<option value="10">10</option>
+									<option value="20">20</option>
+								</select>
+							</div>
 						</div>
 					</div>
-					<UserTable
-						users={dbUsers}
-						deleteUser={deleteUser}
-						setFormValue={setFormValue}
-					/>
-					<div className="pagination-container">
-						{Array.from({ length: Math.ceil(total / limit) }).map((_, idx) => (
-							<button key={idx} onClick={() => getUsers(idx)}>
-								{idx + 1}
-							</button>
-						))}
-					</div>
-					<div>
-						<select name="" id="" onChange={(e) => setLimit(e.target.value)}>
-							<option value="10">10</option>
-							<option value="20">20</option>
-						</select>
-					</div>
 				</div>
-        </div>
-    </div>
-	</>
+			</>
 		</Layout>
-		
-	) 
-
+	);
 }
