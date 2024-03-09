@@ -1,12 +1,12 @@
+import { useOrder } from '../../context/OrderContext';
 import { Link } from 'react-router-dom';
 import './productCard.css';
 import productDefault from '../../assets/image/default-product.png';
-// VER FUNCIION
-// VER CONTEXTO
-// VER CLASES
+
 const URL = import.meta.env.VITE_SERVER_URL;
 
 export const ProductCard = ({ product }) => {
+	const { addItem } = useOrder();
 	return (
 		<article className="thecard">
 			<div className="thefront">
@@ -53,10 +53,10 @@ export const ProductCard = ({ product }) => {
 						</div>
 					</div>
 					<footer className="card-footer">
-						<a href="#" className="card-btn-vm-back">
-							Ver mas
-						</a>
-						<button className="card-btn-buy-back">
+						<Link className='card-btn-vm-back' to={`/product-detail/${product._id}`}>
+							Ver Mas
+						</Link>
+						<button className="card-btn-buy-back" onClick={() => addItem(product)}>
 							<a href="">Comprar</a>
 						</button>
 					</footer>
@@ -65,3 +65,4 @@ export const ProductCard = ({ product }) => {
 		</article>
 	);
 };
+
