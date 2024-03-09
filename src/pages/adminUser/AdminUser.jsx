@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { UserTable } from '../../components/userTable/userTable';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Cart } from '../../components/cart/Cart';
 
 const URL = import.meta.env.VITE_SERVER_URL;
 const TOKEN = localStorage.getItem('token');
@@ -104,12 +105,11 @@ export default function AdminUser() {
 		} catch (error) {}
 	}
 
-	const { register, handleSubmit, setValue } = useForm();
+	const { register, handleSubmit, setValue, reset } = useForm();
 
 	// Obtener data del formulario y hacer un POST o un PUT
 	async function submitedData(data) {
 		try {
-			
 			const formData = new FormData();
 
 			formData.append('name', data.name);
@@ -124,7 +124,7 @@ export default function AdminUser() {
 			if (userId) {
 				if (!TOKEN) return;
 				
-				const response = await axios.put(`${URL}/users/${userId}`, formData, {
+				const response = await axios.put(`${URL}/users/${userId}`,  formData, {
 					headers: {
 						authorization: TOKEN,
 					},
@@ -137,10 +137,12 @@ export default function AdminUser() {
 				});
 				getUsers();
 				setUserId(null);
-				return;
+				reset()
+				return true; // 
 			}
 
 			const response = await axios.post(`${URL}/users`, formData);
+			
 			Swal.fire({
 				title: 'Usuario Creado',
 				text: `El usuario ${response.data.user?.name} fue creado correctamente`,
@@ -158,6 +160,14 @@ export default function AdminUser() {
 			// if (error.response.status === 401) return logout();
 		}
 	}
+	useEffect(() => {
+		getUsers();
+	}, [userId]);
+
+	function getDefaultValueForImage() {
+		
+		return '';
+	}
 
 	function setFormValue(user) {
 		// Iteramos propiedades
@@ -165,7 +175,7 @@ export default function AdminUser() {
 		setValue('email', user?.email || '');
 		setUserId(user?._id || ''); 
 		setValue('age', user?.age || '');
-		setValue('image', user?.image || '');
+		setValue('image', user?.image !== undefined ? [user?.image] : getDefaultValueForImage());
 		setValue('location', user?.location || '');
 		setValue('role', user?.role || '');
 		setValue('active', user?.active || '');
@@ -197,6 +207,7 @@ export default function AdminUser() {
 	return (
 	
 		<Layout>
+			<Cart/>
 			<>
 			<div className="main-container">
 				<h1 className="main-title">Lista de Usuarios
@@ -277,7 +288,7 @@ export default function AdminUser() {
                         <label htmlFor="location">Seleccione su localidad</label><br/>
                         <select name="location" id="location"  {...register('location')}>
                             <option value="buenos_aires">Buenos Aires</option>
-                            <option value="capital_federal">Capital Federal</option>
+                            <option value="capital-federal">Capital Federal</option>
                             <option value="catamarca">Catamarca</option>
                             <option value="chaco">Chaco</option>
                             <option value="chubut">Chubut</option>

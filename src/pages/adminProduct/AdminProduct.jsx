@@ -7,12 +7,13 @@ import { useForm } from 'react-hook-form';
 import { ProductTable } from '../../components/productTable/productTable';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Cart } from '../../components/cart/Cart';
 
 const URL = import.meta.env.VITE_SERVER_URL;
 const TOKEN = localStorage.getItem('token');
 
 export default function AdminProduct() {
-	const { register, handleSubmit, setValue } = useForm();
+	const { register, handleSubmit, setValue, reset } = useForm();
 
 	const [dbProducts, setDbProducts] = useState([]);
 	const [categories, setCategories] = useState([]);
@@ -120,7 +121,6 @@ export default function AdminProduct() {
 		try {
 			const response = await axios.get(`${URL}/categories`);
 			const categoriesDB = response.data.categories;
-			console.log(categoriesDB);
 
 			// Setear un estado que maneje las categorias
 			setCategories(categoriesDB);
@@ -141,6 +141,9 @@ export default function AdminProduct() {
 			formData.append('image', data.image[0]);
 			formData.append('details', data.details);
 			formData.append('category', data.category);
+
+			// formData.append('category', new ObjectId(data.category.name));
+
 			formData.append('stock', data.stock);
 
 			// Ver el product Id
@@ -163,7 +166,8 @@ export default function AdminProduct() {
 				});
 				getProducts();
 				setProductId(null);
-				return;
+				reset();
+				return true;
 			}
 
 			const response = await axios.post(`${URL}/products`, formData);
@@ -185,6 +189,13 @@ export default function AdminProduct() {
 		}
 	}
 
+	useEffect(() => {
+		getProducts();
+	}, [productId]);
+
+	function getDefaultValueForImage() {
+		return '';
+	}
 	function setFormValue(product) {
 		// Iteramos propiedades
 		setProductId(product?._id || '');
@@ -193,14 +204,29 @@ export default function AdminProduct() {
 		setValue('backtName', product?.backtName || '');
 		setValue('backDescription', product?.backDescription || '');
 		setValue('price', product?.price || '');
-		setValue('image', product?.image || '');
+		setValue(
+			'image',
+			product?.image !== undefined
+				? [product?.image]
+				: getDefaultValueForImage()
+		);
 		setValue('details', product?.details || '');
-		setValue('category', product?.category || '');
+		setValue('category', product?.category?._id || '', {
+			shouldValidate: true,
+		});
+
+		// setValue('category', product?.category || '');
+
+		// if (product?.category) {
+		// 	setValue('category.name', product?.category.name || '');
+		// }
+
 		setValue('stock', product?.stock || '');
 	}
 
 	return (
 		<Layout>
+			<Cart />
 			<main className="main-container">
 				<h1 className="main-title">Lista de Productos</h1>
 
@@ -341,12 +367,14 @@ export default function AdminProduct() {
 									required
 									{...register('category')}
 								>
-									<option value="productosSecos">
-										Alimento Seco para Gatos
-									</option>
-									<option value="productosHumedos">
-										Alimento humedo para Gatos
-									</option>
+									{categories.map((category) => (
+										<option
+											key={category._id}
+											value={category._id}
+										>
+											{category.name}
+										</option>
+									))}
 								</select>
 							</div>
 
