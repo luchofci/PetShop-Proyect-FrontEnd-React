@@ -36,7 +36,6 @@ export const ProductCardsContainer = () => {
 			// Pedido al backen de los productos para luego pintarlos.
 			const response = await axios.get(`${URL}/products`);
 
-			console.log(response);
 			setProducts(response.data.products);
 		} catch (error) {
 			console.log(error);

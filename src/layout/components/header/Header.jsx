@@ -11,7 +11,6 @@ export default function Header() {
 	const { user, logout, admin } = useUser();
 
 	useEffect(() => {
-		console.log(user);
 	}, [user]);
 
 	// ----------------------------
@@ -95,6 +94,7 @@ export default function Header() {
 											></i>
 										</div>
 										<div className="dropdown-menu user-avatar">
+											
 											<img
 												src={`${URL}/images/users/${user.image}`}
 												alt={user.name}

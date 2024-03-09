@@ -4,7 +4,6 @@ import './productTableRow.css';
 const URL = import.meta.env.VITE_SERVER_URL;
 
 export const ProductTableRow = ({ prod, deleteProduct, setFormValue }) => {
-	console.log("products", prod)
 	return (
 		<tr key={prod._id}>
 				<td className="table-img">

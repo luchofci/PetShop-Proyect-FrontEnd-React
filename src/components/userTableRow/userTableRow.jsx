@@ -21,14 +21,14 @@ export const UserTableRow = ({ usr, deleteUser, setFormValue }) => {
 			<td className="table-name">{usr.name}</td>
 			<td className="table-email">{usr.email}</td>
 			<td className="table-location">
-				{usr.location ? (
-					usr.location
+				{usr.location.replace('_', ' ') ? (
+					usr.location.replace('_', ' ')
 				) : (
 					<span className="no-data"> NO DATA</span>
 				)}
 			</td>
-			<td className="table-role">{usr.role}</td>
-			<td className="table-role">{usr.active}</td>
+			<td className="table-role">{usr.role.replace('_ROLE', '')}</td>
+			<td className="table-role">{usr.active.replace('_', ' ')}</td>
 			<td className="table-actions">
 				<div className='btn-container'>
 				<button className="btn btn-delete" onClick={()=>deleteUser(usr._id)}>

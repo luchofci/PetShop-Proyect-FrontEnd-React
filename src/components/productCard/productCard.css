@@ -229,6 +229,7 @@
 }
 
 .card-btn-buy-back {
+    cursor: pointer;
     background-color: var(--dark-color);
     /* Green */
     border: none;

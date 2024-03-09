@@ -31,7 +31,7 @@ export const ProductCard = ({ product }) => {
 					</div>
 				</div>
 				<footer className="card-footer">
-					<a href="#" className="card-btn-vm">
+					<a href="" className="card-btn-vm">
 						Ver mas
 					</a>
 					<button className="card-btn-buy">Comprar</button>
@@ -56,8 +56,7 @@ export const ProductCard = ({ product }) => {
 						<Link className='card-btn-vm-back' to={`/product-detail/${product._id}`}>
 							Ver Mas
 						</Link>
-						<button className="card-btn-buy-back" onClick={() => addItem(product)}>
-							<a href="">Comprar</a>
+						<button className="card-btn-buy-back" onClick={() => addItem(product)}>Comprar
 						</button>
 					</footer>
 				</div>

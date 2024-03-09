@@ -3,12 +3,15 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../../layout/layout';
 import './ProductDetail.css'
+import { Cart } from '../../components/cart/Cart';
+import { useOrder } from '../../context/OrderContext';
 
 const URL = import.meta.env.VITE_SERVER_URL;
 
 export const ProductDetail = () => {
 	const { id } = useParams();
 	const [product, setProduct] = useState({});
+	const { addItem } = useOrder();
 
 	useEffect(() => {
 		getProductDetail(id);
@@ -27,6 +30,7 @@ export const ProductDetail = () => {
 	}
 	return (
 		<Layout>
+			<Cart/>
 			<div className="product-detail-container">
 
 			{product.image && (
@@ -36,15 +40,19 @@ export const ProductDetail = () => {
 				alt={product.frontName}
 				/>
 				)}
-			<h1 className="product-title">{product.frontName}</h1>
+			<div className="title-container">
+				<h1 className="product-title">{product.frontName}</h1>
+			</div>
 			<p className="product-description">{product.frontDescription}</p>
-			<h2 className="back-title">{product.backtName}</h2>
-			<p className="back-description">{product.backDescription}</p>
+			<div className="title-container">
+				<h2 className="back-title">{product.backtName}</h2>
+			</div>
+				<p className="back-description">{product.backDescription}</p>
 			<p className="product-price">${product.price}</p>
 			<Link className="link-back" to="/products">
-          &#8592; Volver a la lista de productos
+			&#8592; Volver a la lista de productos
         </Link>
-        <button className="button-buy">Comprar</button>
+        <button className="button-buy" onClick={() => addItem(product)}>Comprar</button>
 			</div>
 		</Layout>
 	);

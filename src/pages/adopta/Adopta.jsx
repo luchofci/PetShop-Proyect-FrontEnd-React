@@ -1,10 +1,12 @@
 import React from 'react'
 import Layout from '../../layout/layout'
 import './Adoptar.css'
+import { Cart } from '../../components/cart/Cart'
 
 export default function Adopta() {
     return (
     <Layout>
+        <Cart/>
         <main className="main-content">
         <section className="adoption-section">
             <h1>¡Adopta una Mascota!</h1>

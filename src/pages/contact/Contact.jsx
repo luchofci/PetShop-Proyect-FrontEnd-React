@@ -1,9 +1,11 @@
+import { Cart } from "../../components/cart/Cart";
 import Layout from "../../layout/layout";
 import './Contact.css'
 
 export default function contact() {
 	return (
 		<Layout>
+			<Cart/>
 			<main className=" main-contact">
 				<section className="section-contact">
 					<div className="contact-form-container">
